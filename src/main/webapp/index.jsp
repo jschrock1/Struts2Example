@@ -114,6 +114,12 @@
       <s:textfield name="age" key="global.age" size="20" />
       <s:submit name="submit" key="global.submit" />
    </s:form>
+   
+    <h3>Testing exception handling.</h3>
+    <h3>This demonstrates how conversion is done with objects</h3>
+	<s:form action="helloException"  method="post">
+		<s:submit>value="click to create Exception"</s:submit>
+	</s:form>
 
 
 

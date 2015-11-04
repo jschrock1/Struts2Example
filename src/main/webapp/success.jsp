@@ -5,6 +5,6 @@
 <title>Successful Login</title>
 </head>
 <body>
-   Success returned from action class
+   Success returned from action class.
 </body>
 </html>
