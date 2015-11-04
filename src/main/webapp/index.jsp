@@ -12,7 +12,7 @@
 <body>
 
 	<h3> Testing login - actioin login. </h3>
-	<s:form action="login" method="post" >
+	<s:form action="login" method="post">
 		<s:textfield label="Please enter your name." value="scott"
 			key="userId" theme="xhtml" />
 		<s:textfield label="Please enter your Password." value="navy"
