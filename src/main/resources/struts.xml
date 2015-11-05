@@ -35,7 +35,6 @@
 				result="errorException" />
 		</global-exception-mappings>
 
-
 		<action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction"
 			method="execute">
 			<interceptor-ref name="cookie"></interceptor-ref>
@@ -43,6 +42,11 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">/HelloWorld.jsp</result>
 			<result name="error">/AccessDenied.jsp</result>
+		</action>
+
+		<action name="hello2" class="com.tutorialspoint.struts2.HelloWorldAction"
+			method="doNothingMethod">
+			<result name="success">/generatorTag.jsp</result>
 		</action>
 
 		<action name="upload" class="com.tutorialspoint.struts2.UploadFile">
@@ -91,12 +95,28 @@
 			<result name="success">/employee.jsp</result>
 		</action>
 
+		<action name="employee" class="com.tutorialspoint.struts2.Employee3"
+			method="execute">
+			<result name="success">/employee.jsp</result>
+		</action>
+		
+		<action name="rainbow" class="com.tutorialspoint.struts2.HelloWorldAction"
+			method="doNothingMethod">
+			<result name="success">/HelloWorld.jsp</result>
+		</action>
+		
+		<action name="testActoinTag" class="com.tutorialspoint.struts2.Employee3"
+			method="execute">
+			<result name="success">/testActionTag.jsp</result>
+		</action>		
+		
 
-	<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 
-		method="execute"> <result name="success" type="freemarker"> <param name="location">/hello.fm</param> 
-		</result> <result name="error"> /AccessDenied.jsp </result> </action -->
 
-</package>
+		<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 
+			method="execute"> <result name="success" type="freemarker"> <param name="location">/hello.fm</param> 
+			</result> <result name="error"> /AccessDenied.jsp </result> </action -->
+
+	</package>
 
 	<package name="Tutorials" namespace="/tutorials" extends="struts-default">
 

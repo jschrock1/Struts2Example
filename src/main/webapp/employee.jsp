@@ -1,12 +1,12 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
 <title>Employees</title>
 </head>
 <body>
 
-<!--    Example of Iterator Tag
+	<!--    Example of Iterator Tag
 
 Iterator tag
 We are using the iterator tag to go through the employees list. 
@@ -35,42 +35,83 @@ the "count" determines the length of the subset.
 
 -->
 
-<b>Example of Iterator Tag</b><br/>
-<s:iterator value="employees">
-	<s:property value="name"/> , 
-	<s:property value="department"/><br/>
-</s:iterator>
-<br/><br/>
-<b>Employees sorted by Department</b><br/>
+	<b>Example of Iterator Tag</b>
+	<br />
+	<s:iterator value="employees">
+		<s:property value="name" /> , 
+	<s:property value="department" />
+		<br />
+	</s:iterator>
 
-<s:bean name="com.tutorialspoint.struts2.DepartmentComparator" 
-   var="deptComparator" />
+	<br />
+	<b>Employees sorted by Department</b>
+	<br />
 
-<s:sort comparator="deptComparator" source="employees">
-   <s:iterator>
-      <s:property value="name"/> , 
-      <s:property value="department"/><br/>
-   </s:iterator>
-</s:sort>
+	<s:bean name="com.tutorialspoint.struts2.DepartmentComparator"
+		var="deptComparator" />
 
-<br/><br/>
 
-<b>SubSet Tag - Employees working in Recruitment department </b><br/>
-<s:subset decider="recruitmentDecider" source="employees">
-   <s:iterator>
-      <s:property value="name"/> , 
-      <s:property value="department"/><br/>
-   </s:iterator>
-</s:subset>
+	<!--  note deptComparator is defined above to be the bean of DepartmentComparator
+      took me some time to figure that one out, lol.   -->
 
-<br/><br/>
+	<s:sort comparator="deptComparator" source="employees">
+		<s:iterator>
+			<s:property value="name" /> , 
+      <s:property value="department" />
+			<br />
+		</s:iterator>
+	</s:sort>
 
-<b>SubSet Tag - Employees 2 and 3 </b><br/>
-<s:subset start="1" count="2" source="employees">
-   <s:iterator>
-      <s:property value="name"/> , 
-      <s:property value="department"/><br/>
-   </s:iterator>
-</s:subset>
+	<br />
+
+	<b>SubSet Tag - Employees working in Recruitment department </b>
+	<br />
+	<s:subset decider="recruitmentDecider" source="employees">
+		<s:iterator>
+			<s:property value="name" /> , 
+      <s:property value="department" />
+			<br />
+		</s:iterator>
+	</s:subset>
+
+	<br />
+
+	<b>SubSet Tag - Employees 2 and 3 </b>
+	<br />
+	<s:subset start="1" count="2" source="employees">
+		<s:iterator>
+			<s:property value="name" /> , 
+            <s:property value="department" />
+			<br />
+		</s:iterator>
+	</s:subset>
+
+	<br />
+
+	<b>Employees and Contractors Merged together.</b>
+	<br />
+	<s:merge id="allemployees">
+		<s:param value="employees" />
+		<s:param value="contractors" />
+	</s:merge>
+	<s:iterator value="allemployees">
+		<s:property value="name" />,
+        <s:property value="department" />
+		<br />
+	</s:iterator>
+
+	<br />
+
+	<b>Employees and Contractors appended together</b>
+	<br />
+	<s:append id="allemployees">
+		<s:param value="employees" />
+		<s:param value="contractors" />
+	</s:append>
+	<s:iterator value="allemployees">
+		<s:property value="name" />,
+      <s:property value="department" />
+		<br />
+	</s:iterator>
 </body>
 </html>

@@ -29,14 +29,14 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- * This class tests a number of things from the tutorial.  we extend
- * ActionSupport as we normally would, and implement a bunch of other classes, 
- * the important one is SessionAware so that we can begin to look at
- * whats in the Session environment which is really typically very 
- * important, where cookies are stored and where things can be placed if
- * one wants to save things for a user, state-full environment.  Typically
- * web transactions are stateless or at least we aim for them to be 
- * stateless.
+ * This class tests a number of things from the tutorial. we extend
+ * ActionSupport as we normally would, and implement a bunch of other classes,
+ * the important one is SessionAware so that we can begin to look at whats in
+ * the Session environment which is really typically very important, where
+ * cookies are stored and where things can be placed if one wants to save things
+ * for a user, state-full environment. Typically web transactions are stateless
+ * or at least we aim for them to be stateless.
+ * 
  * @author jay
  *
  */
@@ -55,9 +55,9 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	private Map<String, String> requestCookies = null;
 
 	/**
-	 * execute  always return SUCCESS just for testing.  dumping valueStacke
-	 * and Serlet information just to see what's in it or how to add and
-	 * take things from it.
+	 * execute always return SUCCESS just for testing. dumping valueStacke and
+	 * Serlet information just to see what's in it or how to add and take things
+	 * from it.
 	 */
 	public String execute() throws Exception {
 
@@ -74,13 +74,17 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 
 	}
 
+	public String doNothingMethod() throws Exception {
+		return SUCCESS;
+	}
+
 	/**
-	 * play around with the ValueStack.  Althought the tutorials talk a bit 
-	 * about the ValueStack and how it holds data from the action class, but 
-	 * since the valuestack goes a way and is recreated for each action call, 
-	 * I don't see its usefulness that much as its stateless in nature.  Of 
-	 * course it will be used to hold member values from actions classes to be
-	 * placed in JSP forms sent back the user, that appears to be its true purpose.
+	 * play around with the ValueStack. Althought the tutorials talk a bit about
+	 * the ValueStack and how it holds data from the action class, but since the
+	 * valuestack goes a way and is recreated for each action call, I don't see
+	 * its usefulness that much as its stateless in nature. Of course it will be
+	 * used to hold member values from actions classes to be placed in JSP forms
+	 * sent back the user, that appears to be its true purpose.
 	 */
 	private void dumpValueStack() {
 		ValueStack vs = ActionContext.getContext().getValueStack();
@@ -101,12 +105,12 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 
 	/**
 	 * play around wth the session and response objects which im not that
-	 * familiar with.  Before Frameworks like Struts 2 and Ruby, these Session
-	 * objects were very important.  With these frameworks, much of the complex
+	 * familiar with. Before Frameworks like Struts 2 and Ruby, these Session
+	 * objects were very important. With these frameworks, much of the complex
 	 * processing like user authentication etc is accomplish by the framework
-	 * itself and magically knows how to access the session objects.  Not sure
-	 * when we use Struts 2 how often we will need to access Session object.  
-	 * Hopefully not that much.  Authentication may need to be done by another 
+	 * itself and magically knows how to access the session objects. Not sure
+	 * when we use Struts 2 how often we will need to access Session object.
+	 * Hopefully not that much. Authentication may need to be done by another
 	 * framework called Sherpo (or something that sounds like that).
 	 */
 	private void dummpServletInfo() {
@@ -138,11 +142,12 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 
 	/**
 	 * This method is here to test a redirect of sorts, rather than the action
-	 * calling the default method execute, we in our struts.xml to call this method
-	 * instead.  This allows us to have many methods in an action class that
-	 * may be part of the same application, for example we may have getTutorial, 
-	 * addTutorial, deleteTutorial etc and all these methods can be placed
-	 * in one action class rather than separate action classees.
+	 * calling the default method execute, we in our struts.xml to call this
+	 * method instead. This allows us to have many methods in an action class
+	 * that may be part of the same application, for example we may have
+	 * getTutorial, addTutorial, deleteTutorial etc and all these methods can be
+	 * placed in one action class rather than separate action classees.
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -168,36 +173,29 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		this.name = name;
 	}
 
-
 	public void setPrincipalProxy(PrincipalProxy principalProxy) {
 		this.principalProxy = principalProxy;
 	}
-
 
 	public void setServletResponse(HttpServletResponse httpServletResponse) {
 		this.response = httpServletResponse;
 	}
 
-
 	public void setServletRequest(HttpServletRequest httpServletRequest) {
 		this.request = httpServletRequest;
 	}
-
 
 	public void setRequest(Map<String, Object> requestAttr) {
 		this.requestAttributes = requestAttr;
 	}
 
-
 	public void setCookiesMap(Map<String, String> cookies) {
 		this.requestCookies = cookies;
 	}
 
-
 	public void setApplication(Map<String, Object> applicationAttributes) {
 		this.contextAttributes = applicationAttributes;
 	}
-
 
 	public void setSession(Map<String, Object> sessionAttr) {
 		this.sessionAttributes = sessionAttr;
