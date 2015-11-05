@@ -120,6 +120,11 @@
 	<s:form action="helloException"  method="post">
 		<s:submit>value="click to create Exception"</s:submit>
 	</s:form>
+	
+    <h3>Testing struts 2 list and collection handling.</h3>
+	<s:form action="employee"  method="post">
+		<s:submit>value="click to display various lists of employee's"</s:submit>
+	</s:form>	
 
 
 

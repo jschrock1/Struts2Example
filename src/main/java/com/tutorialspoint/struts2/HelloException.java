@@ -6,7 +6,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Demonstrates an exception, we need to handle it, we have an exception
- * interceptor which should display the errorException.jsp
+ * interceptor which should display the errorException.jsp  I've trie 
+ * to rid this class up where it sets a member variable to the exception
+ * message so that we can display that message on the browser, however
+ * I found that after the exception the interceptor does not grab the value
+ * so its unavailable, oh well, not a big problem, log files are where 
+ * to place this info.  Perhaps we can create an action class to read a 
+ * log file and display the exception stack....
  * 
  * @author jay
  *

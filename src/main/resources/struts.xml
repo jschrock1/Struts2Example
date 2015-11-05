@@ -77,20 +77,26 @@
 			method="execute">
 			<result name="success">/System.jsp</result>
 		</action>
-		
+
 		<action name="helloException" class="com.tutorialspoint.struts2.HelloException"
 			method="execute">
-			 <interceptor-ref name="params"/>
-			 <interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="params" />
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="errorException">/errorException.jsp</result>
 			<result name="success">/success.jsp</result>
 		</action>
 
-		<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 
-			method="execute"> <result name="success" type="freemarker"> <param name="location">/hello.fm</param> 
-			</result> <result name="error"> /AccessDenied.jsp </result> </action -->
+		<action name="employee" class="com.tutorialspoint.struts2.Employee3"
+			method="execute">
+			<result name="success">/employee.jsp</result>
+		</action>
 
-	</package>
+
+	<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 
+		method="execute"> <result name="success" type="freemarker"> <param name="location">/hello.fm</param> 
+		</result> <result name="error"> /AccessDenied.jsp </result> </action -->
+
+</package>
 
 	<package name="Tutorials" namespace="/tutorials" extends="struts-default">
 
