@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h4>Basic helloWorld .</h4>
+	<h4>Basic helloWorld . </h4>
 	<s:form action="hello">
 		<s:textfield label="Please enter your name." key="name" value="Jay" />
 		<s:textfield label="test type" key="testing" value="basic" />
