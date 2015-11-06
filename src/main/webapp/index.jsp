@@ -137,8 +137,7 @@
 
 	<br />
 
-	<h4>An example of the include and param tags: this jsp includes
-		the counter.jsp</h4>
+	<h4>Include tag, bean tag and param tags</h4>
 	<s:include value="counter.jsp" />
 
 	<h4>propert tag</h4>
