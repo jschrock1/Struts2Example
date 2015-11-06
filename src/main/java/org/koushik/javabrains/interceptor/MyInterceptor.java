@@ -1,4 +1,4 @@
-package com.tutorialspoint.struts2;
+package org.koushik.javabrains.interceptor;
 
 import java.util.*;
 import com.opensymphony.xwork2.ActionInvocation;

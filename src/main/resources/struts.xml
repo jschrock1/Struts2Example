@@ -25,10 +25,6 @@
 
 	<package name="helloworld" extends="struts-default">
 
-		<interceptors>
-			<interceptor name="myinterceptor"
-				class="com.tutorialspoint.struts2.MyInterceptor" />
-		</interceptors>
 
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.NullPointerException"
@@ -37,16 +33,17 @@
 
 		<action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction"
 			method="execute">
+			<result name="success">/HelloWorld.jsp</result>
+			<result name="error">/AccessDenied.jsp</result>
+		</action>
+
+		<action name="hello1" class="com.tutorialspoint.struts2.HelloWorldAction"
+			method="execute">
 			<interceptor-ref name="cookie"></interceptor-ref>
 			<interceptor-ref name="cookieProvider"></interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">/HelloWorld.jsp</result>
 			<result name="error">/AccessDenied.jsp</result>
-		</action>
-
-		<action name="hello2" class="com.tutorialspoint.struts2.HelloWorldAction"
-			method="doNothingMethod">
-			<result name="success">/generatorTag.jsp</result>
 		</action>
 
 		<action name="upload" class="com.tutorialspoint.struts2.UploadFile">
@@ -99,17 +96,17 @@
 			method="execute">
 			<result name="success">/employee.jsp</result>
 		</action>
-		
+
 		<action name="rainbow" class="com.tutorialspoint.struts2.HelloWorldAction"
 			method="doNothingMethod">
 			<result name="success">/HelloWorld.jsp</result>
 		</action>
-		
+
 		<action name="testActoinTag" class="com.tutorialspoint.struts2.Employee3"
 			method="execute">
 			<result name="success">/testActionTag.jsp</result>
-		</action>		
-		
+		</action>
+
 
 
 		<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 

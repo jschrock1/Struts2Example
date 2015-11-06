@@ -11,7 +11,14 @@
 </head>
 <body>
 
-	<h4>Testing login - actioin login.</h4>
+	<h4>Basic helloWorld .</h4>
+	<s:form action="hello">
+		<s:textfield label="Please enter your name." key="name" value="Jay" />
+		<s:textfield label="test type" key="testing" value="basic" />
+		<s:submit></s:submit>
+	</s:form>
+	
+	<h4>Basic login Connects to MySQL Database.</h4>
 	<s:form action="login" method="post">
 		<s:textfield label="Please enter your name." value="scott"
 			key="userId" theme="xhtml" />
@@ -19,35 +26,43 @@
 			key="password" theme="xhtml" />
 		<s:submit value="Login"></s:submit>
 	</s:form>
+	
+	<h4>Login using getModel in action class</h4>
+	<s:form action="login2" method="post">
+		<s:textfield label="Login ID" key="userId" value="Jay" />
+		<s:password label="Password" key="password" value="pass12345"/>
+		<s:submit></s:submit>
+	</s:form>
+	
+	<h4>Login using my own interceptor class.</h4>
+	<s:form action="login3" method="post">
+		<s:textfield label="Please enter your name." value="scott"
+			key="userId" />
+		<s:textfield label="Please enter your Password." value="navy"
+			key="password" />
+		<s:submit value="Login"></s:submit>
+	</s:form>	
 
-	<h4>Testing hello - action hello.</h4>
-	<s:form action="hello">
-		<s:textfield label="Please enter your name. Jay will return success"
-			key="name" />
+	<h4>Display session, an internal list and Generator Tag .</h4>
+	<s:form action="hello1">
+		<s:textfield label="Please enter your name." key="name" value="Jay" />
+		<s:textfield label="test type" key="testing" value="dumpSession" />
 		<s:submit></s:submit>
 	</s:form>
 
-	<h4>Tutorial Finder. Uses dummy action to display a different jsp
-		with no java action code running - dummy action is searchForm</h4>
+	<h4>Dummy action, displays jsp with no java action getting called</h4>
 	<s:form action="searchForm" method="post">
 		<s:submit value="Find Tutorials"></s:submit>
 	</s:form>
 	<br />
 
-	<h4>Testing file upload - action is upload.</h4>
+	<h4>Upload a file.</h4>
 	<s:form action="upload" method="post" enctype="multipart/form-data">
 		<s:file label="Upload your file." key="myFile" />
 		<s:submit value="Upload"></s:submit>
 	</s:form>
 
-	<h4>Testing servletTest - action is servletTest.</h4>
-	<s:form action="servletTest">
-		<s:textfield label="click to look at servlet stuff" key="name" />
-		<s:submit></s:submit>
-	</s:form>
-
-
-	<h4>The form below uses Google's SMTP server - action is emailer.
+	<h4>Send an Email.
 	</h4>
 	<s:form action="emailer" method="post">
 		<s:textfield label="From" value="jay.schrock@gmail.com" key="from" />
@@ -59,7 +74,7 @@
 	</s:form>
 
 
-	<h4>Testing Validation age must be 28 to 65 - action is empinfo</h4>
+	<h4>Validation age must be 28 to 65 - action is empinfo</h4>
 	<s:form action="empinfo" method="post">
 		<s:textfield name="name" label="Name" size="20" />
 		<s:textfield name="age" label="Age" size="20" />
@@ -67,33 +82,15 @@
 	</s:form>
 
 
-	<h4>Testing Validation with xml file rather than validate method -
+	<h4>Validation with xml file rather than validate method -
 		action is empinfo2.</h4>
+	<h4>Does NOT work yet, validation file not picked up.</h4>
 	<s:form action="empinfo2" method="post">
 		<s:textfield name="name" label="Name" size="20" />
 		<s:textfield name="age" label="Age" size="20" />
 		<s:submit name="submit" label="Submit" align="right" />
 	</s:form>
 
-
-	<h4>Login with use of method getModel in action class - action is
-		login2.</h4>
-	<h4>This demonstrates how conversion is done with objects</h4>
-	<s:form action="login2" method="post">
-		<s:textfield label="Login ID" key="userId" value="userId" />
-		<s:password label="Password" key="password" />
-		<s:submit></s:submit>
-	</s:form>
-
-
-	<h4>Login3 with my own interceptor class - action is login3.</h4>
-	<s:form action="login3" method="post">
-		<s:textfield label="Please enter your name." value="scott"
-			key="userId" />
-		<s:textfield label="Please enter your Password." value="navy"
-			key="password" />
-		<s:submit value="Login"></s:submit>
-	</s:form>
 
 	<h4>
 		<s:text name="global.heading" />
@@ -131,11 +128,6 @@
 		<s:submit></s:submit>
 	</s:form>
 
-	<h4>Testing internal generated list using generate tag.</h4>
-	<s:form action="hello2" method="post">
-		<s:submit></s:submit>
-	</s:form>
-
 	<br />
 
 	<h4>Testing action tag process, use action directoy in jsp.</h4>
@@ -148,8 +140,6 @@
 	<h4>An example of the include and param tags: this jsp includes
 		the counter.jsp</h4>
 	<s:include value="counter.jsp" />
-
-	<br />
 
 	<h4>propert tag</h4>
 	<s:form action="system" method="post">

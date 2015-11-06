@@ -15,6 +15,7 @@ public class Employee2 extends ActionSupport{
    
    public String execute() 
    {
+	   System.out.println("In execute of Employee2");
        return SUCCESS;
    }
    public String getName() {

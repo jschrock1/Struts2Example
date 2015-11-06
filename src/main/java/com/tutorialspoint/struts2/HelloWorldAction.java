@@ -44,6 +44,7 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		RequestAware, ServletRequestAware, ServletResponseAware, PrincipalAware {
 
 	private String name;
+	private String testing;
 
 	// variables for *Aware interfaces
 	private PrincipalProxy principalProxy = null;
@@ -62,10 +63,8 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	public String execute() throws Exception {
 
 		System.out.println("in execute() of HelloWorldAction, name is " + name);
-
+		dumpStackAndSession();
 		if (name.equals(name)) {
-			dumpValueStack();
-			dummpServletInfo();
 			return SUCCESS;
 
 		} else {
@@ -75,6 +74,12 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	}
 
 	public String doNothingMethod() throws Exception {
+		return SUCCESS;
+	}
+	
+	public String dumpStackAndSession() throws Exception {
+		//dumpValueStack();
+		//dummpServletInfo();
 		return SUCCESS;
 	}
 
@@ -117,26 +122,15 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		System.out.println("Request Method: " + request.getMethod());
 		System.out.println("Using HTTPS?: " + principalProxy.isRequestSecure());
 		System.out.println("Request Cookies:" + requestCookies);
-		// add a cookie to response
-		response.addCookie(new Cookie("user", "Jay"));
-		if (requestCookies == null)
-			requestCookies = new HashMap<String, String>();
-		requestCookies.put("test", "test");
 
 		System.out.println("Session Attributes: " + sessionAttributes);
 		// add session attribute
 		HttpSession mySession = request.getSession();
 
+		// session aattributes can be added various ways as shown below
 		mySession.setAttribute("user", name);
-		// OR
-		sessionAttributes.put("test", "Testy");
-		System.out.println("Session Attributes: " + sessionAttributes);
-
-		System.out.println("Context Attributes: " + contextAttributes.get("user"));
-		// add context attribute
-		contextAttributes.put("user", "Pankaj");
-
-		System.out.println("Request Attributes: " + requestAttributes);
+		sessionAttributes.put("test", testing);
+		System.out.println("Session Attributes after adding member vars to it: " + sessionAttributes);
 
 	}
 
@@ -172,6 +166,17 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		System.out.println("in setName() of HelloWorldAction, name is " + name);
 		this.name = name;
 	}
+	
+	public String getTesting() {
+		System.out.println("in getTesting() of HelloWorldAction, testing is " + testing);
+		return testing;
+	}
+
+	public void setTesting(String testing) {
+		System.out.println("in setTesting() of HelloWorldAction, testing is " + testing);
+		this.testing = testing;
+	}
+	
 
 	public void setPrincipalProxy(PrincipalProxy principalProxy) {
 		this.principalProxy = principalProxy;

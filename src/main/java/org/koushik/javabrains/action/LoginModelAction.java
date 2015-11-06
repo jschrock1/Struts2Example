@@ -36,13 +36,7 @@ public class LoginModelAction extends BaseAction  {
 		log("In execute of LoginModelAction user id is: " + user.getUserId());
 		log("In execute of LoginModelAction password is: " + user.getPassword());
 		try {
-			if (user.getUserId().equals("userId") && user.getPassword().equals("password")) {
-				log("In execute of LoginModelAction userid and password matches");
-				return "success";
-			} else {
-				log("In error of execute of LoginModelAction");
-				return "error";
-			}
+		   return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ERROR;
