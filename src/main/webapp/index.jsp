@@ -122,7 +122,7 @@
 		<s:submit></s:submit>
 	</s:form>
 
-	<h4>Testing struts 2 list, collection, merging and appending of
+	<h4>Struts 2 list, collection, merging and appending of
 		lists.</h4>
 	<s:form action="employee" method="post">
 		<s:submit></s:submit>
@@ -130,7 +130,7 @@
 
 	<br />
 
-	<h4>Testing action tag process, use action directoy in jsp.</h4>
+	<h4>Action tag call action from view page.</h4>
 	<s:form action="testActoinTag" method="post">
 		<s:submit></s:submit>
 	</s:form>

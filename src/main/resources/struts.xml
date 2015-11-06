@@ -101,10 +101,15 @@
 			method="doNothingMethod">
 			<result name="success">/HelloWorld.jsp</result>
 		</action>
+		
+		<action name="doNothing" class="com.tutorialspoint.struts2.Employee3"
+			method="execute">
+			<result name="success">/generatorTag.jsp</result>
+		</action>		
 
 		<action name="testActoinTag" class="com.tutorialspoint.struts2.Employee3"
 			method="execute">
-			<result name="success">/testActionTag.jsp</result>
+			<result name="success">/callAction.jsp</result>
 		</action>
 
 
