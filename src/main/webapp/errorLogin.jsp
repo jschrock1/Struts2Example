@@ -8,6 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-Java Exception:  <s:property value="exceptionStr"/>
+	<h4>Basic login Connects to MySQL Database.</h4>
+	<s:form action="login" method="post">
+		<s:textfield label="Please enter your name." value="scott"
+			key="userId" theme="xhtml" />
+		<s:textfield label="Please enter your Password." value="navy"
+			key="password" theme="xhtml" />
+		<s:submit value="Login"></s:submit>
+	</s:form>
 </body>
 </html>

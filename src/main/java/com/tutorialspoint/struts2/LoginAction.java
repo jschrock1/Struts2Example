@@ -27,6 +27,7 @@ public class LoginAction extends BaseAction {
 	
 	public void validate() {
 		log("In validate userId is: " + userId);
+		log("In validate password is: " + password);
 	}
 
 	public String execute() {
@@ -63,6 +64,7 @@ public class LoginAction extends BaseAction {
 				System.out.println("In Execute of LoginAction name is: " + name);
 				ret = SUCCESS;
 			}
+			System.out.println("returning: " + ret);
 
 		} catch (Exception e) {
 			ret = ERROR;

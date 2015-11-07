@@ -20,5 +20,5 @@
  * under the License.
  */
 -->
-<table style="border:1px solid black;"
+<table style="border:0px solid black;"
 >

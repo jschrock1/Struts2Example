@@ -92,7 +92,8 @@
 
 
 	<h4>
-		<s:text name="global.heading, property files need to be under resources" />
+		<s:text
+			name="global.heading, property files need to be under resources" />
 	</h4>
 
 	<s:url id="indexEN" namespace="/" action="locale">
@@ -153,9 +154,64 @@
 		<s:submit></s:submit>
 	</s:form>
 
+	<h4>Url Tags creates a URL that when clicked will call an action</h4>
+	<s:url id="login" action="login" var="myurl">
+		<s:param name="userId">scott</s:param>
+		<s:param name="password">navy</s:param>
+	</s:url>
+
+	<a href='<s:property value="#myurl"/>'> <s:property value="#myurl" /></a>
+
+	<h4>Ui tags</h4>
+
+	<s:div>Email Form</s:div>
+	<s:text name="Please fill in the form below:" />
+	<s:form action="hello" method="post" enctype="multipart/form-data">
+		<s:hidden name="secret" value="abracadabra" />
+		<s:textfield key="email.from" name="from" />
+		<s:password key="email.password" name="password" />
+		<s:textfield key="email.to" name="to" />
+		<s:textfield key="email.subject" name="subject" />
+		<s:textarea key="email.body" name="email.body" />
+		<s:label for="attachment" value="Attachment" />
+		<s:file name="attachment" accept="text/html,text/plain" />
+		<s:token />
+		<!--   -->s:submit key="submit" / -->
+	</s:form>
 
 
+	<h4>Group Ui tags</h4>
+	<s:form action="hello.action">
+		<s:radio label="Gender" name="gender" list="{'male','female'}" />
+		<s:checkboxlist label="Hobbies" name="hobbies"
+			list="{'sports','tv','shopping'}" />
+	</s:form>
+	
+	<h4>Example Ui tags</h4>
+	 <s:form action="login.action">
+      <s:select name="username" label="Username"
+         list="{'Mike','John','Smith'}" />
 
+      <s:select label="Company Office" name="mySelection"
+         value="%{'America'}"
+         list="%{#{'America':'America'}}">
+      <s:optgroup label="Asia" 
+         list="%{#{'India':'India','China':'China'}}" />
+      <s:optgroup label="Europe"
+         list="%{#{'UK':'UK','Sweden':'Sweden','Italy':'Italy'}}" />
+      </s:select>
+
+      <s:combobox label="My Sign" name="mySign"
+         list="#{'aries':'ariesy','capricorn':'capricornyy'}"
+         headerKey="-1" 
+         headerValue="--- Please Select ---" emptyOption="true"
+         value="capricorn" />
+      <s:doubleselect label="Occupation" name="occupation"
+         list="{'Technical','Other'}" doubleName="occupations2"
+         doubleList="top == 'Technical' ? 
+         {'I.T', 'Hardware'} : {'Accounting', 'H.R'}" />
+
+   </s:form>
 
 </body>
 </html>

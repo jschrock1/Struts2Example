@@ -15,7 +15,7 @@
 
 		<action name="login" class="com.tutorialspoint.struts2.LoginAction">
 			<result name="success">/successLogin.jsp</result>
-			<result name="error">/index.jsp</result>
+			<result name="error">/errorLogin.jsp</result>
 
 			<!-- stuts2 validate method would indicate this if any field errors were 
 				found -->

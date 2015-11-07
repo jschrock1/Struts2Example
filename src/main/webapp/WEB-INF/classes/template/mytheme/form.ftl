@@ -30,4 +30,6 @@
   </#if>
 </#if>
 >
+
 <#include "/${parameters.templateDir}/mytheme/control.ftl" />
+
