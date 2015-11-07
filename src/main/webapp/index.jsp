@@ -11,13 +11,13 @@
 </head>
 <body>
 
-	<h4>Basic helloWorld . </h4>
+	<h4>Basic helloWorld .</h4>
 	<s:form action="hello">
 		<s:textfield label="Please enter your name." key="name" value="Jay" />
 		<s:textfield label="test type" key="testing" value="basic" />
 		<s:submit></s:submit>
 	</s:form>
-	
+
 	<h4>Basic login Connects to MySQL Database.</h4>
 	<s:form action="login" method="post">
 		<s:textfield label="Please enter your name." value="scott"
@@ -26,14 +26,14 @@
 			key="password" theme="xhtml" />
 		<s:submit value="Login"></s:submit>
 	</s:form>
-	
+
 	<h4>Login using getModel in action class</h4>
 	<s:form action="login2" method="post">
 		<s:textfield label="Login ID" key="userId" value="Jay" />
-		<s:password label="Password" key="password" value="pass12345"/>
+		<s:password label="Password" key="password" value="pass12345" />
 		<s:submit></s:submit>
 	</s:form>
-	
+
 	<h4>Login using my own interceptor class.</h4>
 	<s:form action="login3" method="post">
 		<s:textfield label="Please enter your name." value="scott"
@@ -41,7 +41,7 @@
 		<s:textfield label="Please enter your Password." value="navy"
 			key="password" />
 		<s:submit value="Login"></s:submit>
-	</s:form>	
+	</s:form>
 
 	<h4>Display session, an internal list and Generator Tag .</h4>
 	<s:form action="hello1">
@@ -62,8 +62,7 @@
 		<s:submit value="Upload"></s:submit>
 	</s:form>
 
-	<h4>Send an Email.
-	</h4>
+	<h4>Send an Email.</h4>
 	<s:form action="emailer" method="post">
 		<s:textfield label="From" value="jay.schrock@gmail.com" key="from" />
 		<s:textfield label="To" value="jay.schrock@gmail.com" key="to" />
@@ -82,8 +81,8 @@
 	</s:form>
 
 
-	<h4>Validation with xml file rather than validate method -
-		action is empinfo2.</h4>
+	<h4>Validation with xml file rather than validate method - action
+		is empinfo2.</h4>
 	<h4>Does NOT work yet, validation file not picked up.</h4>
 	<s:form action="empinfo2" method="post">
 		<s:textfield name="name" label="Name" size="20" />
@@ -93,7 +92,7 @@
 
 
 	<h4>
-		<s:text name="global.heading" />
+		<s:text name="global.heading, property files need to be under resources" />
 	</h4>
 
 	<s:url id="indexEN" namespace="/" action="locale">
@@ -122,15 +121,14 @@
 		<s:submit></s:submit>
 	</s:form>
 
-	<h4>Struts 2 list, collection, merging and appending of
-		lists.</h4>
+	<h4>Struts 2 list, collection, merging and appending of lists.</h4>
 	<s:form action="employee" method="post">
 		<s:submit></s:submit>
 	</s:form>
 
 	<br />
 
-	<h4>Action tag call action from view page.</h4>
+	<h4>Action tag call action directly from jsp page.</h4>
 	<s:form action="testActoinTag" method="post">
 		<s:submit></s:submit>
 	</s:form>
@@ -140,10 +138,24 @@
 	<h4>Include tag, bean tag and param tags</h4>
 	<s:include value="counter.jsp" />
 
-	<h4>propert tag</h4>
+	<h4>property tag, set, push and property usage</h4>
 	<s:form action="system" method="post">
 		<s:submit></s:submit>
 	</s:form>
+
+	<h4>Date Tags</h4>
+	<s:form action="helloDate" method="post">
+		<s:submit></s:submit>
+	</s:form>
+
+	<h4>Text Tags Uses HelloText.properties</h4>
+	<s:form action="helloText" method="post">
+		<s:submit></s:submit>
+	</s:form>
+
+
+
+
 
 </body>
 </html>
