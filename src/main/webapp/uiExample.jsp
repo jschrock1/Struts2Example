@@ -10,8 +10,22 @@
 <title>Hello World</title>
 </head>
 <body>
-<h4>Ui tags</h4>
+	<h4>Ui tags</h4>
 
+	<h5>Example of Generator Tag, The colours of rainbow:</h5>
+
+	<s:generator
+		val="%{'Violet,Indigo,Blue,
+         Green,Yellow,Orange,Red '}"
+		count="7" separator=",">
+		<s:iterator>
+			<s:property />
+			<br />
+		</s:iterator>
+	</s:generator>
+	
+
+<h4>Email Form</h4>
 	<s:div>Email Form</s:div>
 	<s:text name="Please fill in the form below:" />
 	<s:form action="hello" method="post" enctype="multipart/form-data">
@@ -36,32 +50,30 @@
 	</s:form>
 
 	<h4>Example Ui tags</h4>
-	 <s:form action="login.action">
-      <s:select name="username" label="Username"
-         list="{'Mike','John','Smith'}" />
+	<s:form action="login.action">
+		<s:select name="username" label="Username"
+			list="{'Mike','John','Smith'}" />
 
-      <s:select label="Company Office" name="mySelection"
-         value="%{'America'}"
-         list="%{#{'America':'America'}}">
-      <s:optgroup label="Asia" 
-         list="%{#{'India':'India','China':'China'}}" />
-      <s:optgroup label="Europe"
-         list="%{#{'UK':'UK','Sweden':'Sweden','Italy':'Italy'}}" />
-      </s:select>
+		<s:select label="Company Office" name="mySelection"
+			value="%{'America'}" list="%{#{'America':'America'}}">
+			<s:optgroup label="Asia" list="%{#{'India':'India','China':'China'}}" />
+			<s:optgroup label="Europe"
+				list="%{#{'UK':'UK','Sweden':'Sweden','Italy':'Italy'}}" />
+		</s:select>
 
-      <s:combobox label="My Sign" name="mySign"
-         list="#{'aries':'ariesy','capricorn':'capricornyy'}"
-         headerKey="-1" 
-         headerValue="--- Please Select ---" emptyOption="true"
-         value="capricorn" />
-      <s:doubleselect label="Occupation" name="occupation"
-         list="{'Technical','Other'}" doubleName="occupations2"
-         doubleList="top == 'Technical' ? 
+		<s:combobox label="My Sign" name="mySign"
+			list="#{'aries':'ariesy','capricorn':'capricornyy'}" headerKey="-1"
+			headerValue="--- Please Select ---" emptyOption="true"
+			value="capricorn" />
+		<s:doubleselect label="Occupation" name="occupation"
+			list="{'Technical','Other'}" doubleName="occupations2"
+			doubleList="top == 'Technical' ? 
          {'I.T', 'Hardware'} : {'Accounting', 'H.R'}" />
 
-   </s:form>
-   
-   <h4>As you can see an exception occurs in the console, not sure yet how to fix it.</h4>
+	</s:form>
+
+	<h4>As you can see an exception occurs in the console, not sure
+		yet how to fix it.</h4>
 
 </body>
 </html>

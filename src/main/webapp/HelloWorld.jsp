@@ -6,37 +6,22 @@
 </head>
 <body>
 
-
-	<s:if test="testing=='basic'">
+	<s:if test="type=='basic'">
    Hello, <s:property value="name" />
 		<br />
-    Testing, <s:property value="testing" />
+   Type, <s:property value="type" />
 	</s:if>
 
-
-	<s:if test="testing=='dumpSession'">
-		<h4>Testing session, an internal list and Generator Tag</h4>
-		Session user is: <s:property value="#session.user" />	<br />
-	    Session test is: <s:property value="#session.test" />
-
-		<br /><br />
-		<s:select name="color" list="{'red','yellow','green'}" />
-
+	<s:if test="type=='dumpSession'">
+		<h4>Showing ValueStack and Session info</h4>
+         <s:property value="vsStr" />
 		<br />
-		
-		<h3>Example of Generator Tag</h3>
-		<h3>The colours of rainbow:</h3>
+	     Session attributes are: <s:property value="mySession" />
 
-		<s:generator
-			val="%{'Violet,Indigo,Blue,
-         Green,Yellow,Orange,Red '}"
-			count="7" separator=",">
-			<s:iterator>
-				<s:property />
-				<br />
-			</s:iterator>
-		</s:generator>
 	</s:if>
+
+
+
 
 </body>
 </html>

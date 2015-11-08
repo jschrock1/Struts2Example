@@ -44,7 +44,9 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		RequestAware, ServletRequestAware, ServletResponseAware, PrincipalAware {
 
 	private String name;
-	private String testing;
+	private String type;
+	private String vsStr = null;
+	private SessionMap mySession = null;
 
 	// variables for *Aware interfaces
 	private PrincipalProxy principalProxy = null;
@@ -55,6 +57,10 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	private Map<String, Object> contextAttributes = null;
 	private Map<String, String> requestCookies = null;
 
+	
+	public void validate() {
+		System.out.println("In validatae of HelloWorldAction");
+	}
 	/**
 	 * execute always return SUCCESS just for testing. dumping valueStacke and
 	 * Serlet information just to see what's in it or how to add and take things
@@ -63,25 +69,20 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	public String execute() throws Exception {
 
 		System.out.println("in execute() of HelloWorldAction, name is " + name);
-		dumpStackAndSession();
-		if (name.equals(name)) {
-			return SUCCESS;
-
-		} else {
-			return ERROR;
+		System.out.println("in execute() of HelloWorldAction, type is " + type);
+		
+		if (!type.equals("basic")) {
+			dumpValueStackAndSession();
 		}
+
+		return SUCCESS;
 
 	}
 
 	public String doNothingMethod() throws Exception {
 		return SUCCESS;
 	}
-	
-	public String dumpStackAndSession() throws Exception {
-		//dumpValueStack();
-		//dummpServletInfo();
-		return SUCCESS;
-	}
+
 
 	/**
 	 * play around with the ValueStack. Althought the tutorials talk a bit about
@@ -91,46 +92,23 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 	 * used to hold member values from actions classes to be placed in JSP forms
 	 * sent back the user, that appears to be its true purpose.
 	 */
-	private void dumpValueStack() {
+	private void dumpValueStackAndSession() {
+		
 		ValueStack vs = ActionContext.getContext().getValueStack();
 		System.out.println("num of VS elements: " + vs.size());
 
-		for (int i = vs.size(); i != 0; i--) {
-			Object o1 = vs.pop();
-			System.out.println(o1.toString());
-		}
+		vsStr = vs.toString();
 
 		String mySessionStr = ActionContext.SESSION;
 		System.out.println(mySessionStr);
 
-		SessionMap mySession = (SessionMap) ActionContext.getContext().getSession();
+		mySession = (SessionMap) ActionContext.getContext().getSession();
+		HttpSession mySession2 = request.getSession();
+		// session aattributes can be added various ways as shown below
+		mySession2.setAttribute("user", name);
+		sessionAttributes.put("test", type);
 		System.out.println("Session is: " + mySession.toString());
 
-	}
-
-	/**
-	 * play around wth the session and response objects which im not that
-	 * familiar with. Before Frameworks like Struts 2 and Ruby, these Session
-	 * objects were very important. With these frameworks, much of the complex
-	 * processing like user authentication etc is accomplish by the framework
-	 * itself and magically knows how to access the session objects. Not sure
-	 * when we use Struts 2 how often we will need to access Session object.
-	 * Hopefully not that much. Authentication may need to be done by another
-	 * framework called Sherpo (or something that sounds like that).
-	 */
-	private void dummpServletInfo() {
-		System.out.println("Request Method: " + request.getMethod());
-		System.out.println("Using HTTPS?: " + principalProxy.isRequestSecure());
-		System.out.println("Request Cookies:" + requestCookies);
-
-		System.out.println("Session Attributes: " + sessionAttributes);
-		// add session attribute
-		HttpSession mySession = request.getSession();
-
-		// session aattributes can be added various ways as shown below
-		mySession.setAttribute("user", name);
-		sessionAttributes.put("test", testing);
-		System.out.println("Session Attributes after adding member vars to it: " + sessionAttributes);
 
 	}
 
@@ -166,15 +144,35 @@ public class HelloWorldAction extends ActionSupport implements SessionAware, App
 		System.out.println("in setName() of HelloWorldAction, name is " + name);
 		this.name = name;
 	}
-	
-	public String getTesting() {
-		System.out.println("in getTesting() of HelloWorldAction, testing is " + testing);
-		return testing;
+
+	public String getType() {
+		System.out.println("in getType() of HelloWorldAction, type is " + type);
+		return type;
 	}
 
-	public void setTesting(String testing) {
-		System.out.println("in setTesting() of HelloWorldAction, testing is " + testing);
-		this.testing = testing;
+	public void setType(String type) {
+		System.out.println("in setType() of HelloWorldAction, type is " + type);
+		this.type = type;
+	}
+	
+	
+	public String getVsStr() {
+		System.out.println("in getVsStr() of HelloWorldAction, vs is " + vsStr);
+		return vsStr;
+	}
+	
+	public void setVsStr(String vsStr) {
+		this.vsStr = vsStr;
+	}
+
+	public SessionMap getMySession() {
+		System.out.println("in getMySession() of HelloWorldAction, mySession is " + mySession);
+		return mySession;
+	}
+
+	public void setMySession(SessionMap mySession) {
+		this.mySession = mySession;
+		
 	}
 	
 

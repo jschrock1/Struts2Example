@@ -14,7 +14,8 @@
 	<h4>Basic helloWorld .</h4>
 	<s:form action="hello">
 		<s:textfield label="Please enter your name." key="name" value="Jay" />
-		<s:textfield label="test type" key="testing" value="basic" />
+		<s:select name="type" label="Type of HelloWorld Test"
+			list="{'basic','dumpSession'}" />
 		<s:submit></s:submit>
 	</s:form>
 
@@ -29,8 +30,8 @@
 
 	<h4>Login using getModel in action class</h4>
 	<s:form action="login2" method="post">
-		<s:textfield label="Login ID" key="user.userId" value="Jay" />
-		<s:password label="Password" key="user.password" value="pass12345" />
+		<s:textfield label="Login ID" key="userId" value="Jay" />
+		<s:password label="Password" key="password"  />
 		<s:submit></s:submit>
 	</s:form>
 
@@ -43,10 +44,10 @@
 		<s:submit value="Login"></s:submit>
 	</s:form>
 
-	<h4>Display session, an internal list and Generator Tag .</h4>
+	<h4>Display ValueStack and Session.</h4>
 	<s:form action="hello1">
 		<s:textfield label="Please enter your name." key="name" value="Jay" />
-		<s:textfield label="test type" key="testing" value="dumpSession" />
+		<s:textfield label="test type" key="type" value="dumpSession" />
 		<s:submit></s:submit>
 	</s:form>
 

@@ -19,13 +19,13 @@
 
 			<!-- stuts2 validate method would indicate this if any field errors were 
 				found -->
-			<result name="input">login.jsp</result>
+			<result name="input">index.jsp</result>
 		</action>
 
 		<action name="login2" class="org.koushik.javabrains.action.LoginModelAction">
 			<result name="success">/successLogin.jsp</result>
 			<result name="error">/errorLogin.jsp</result>
-			<result name="input">index.jsp</result>
+			<result name="input">errorLogin2.jsp</result>
 		</action>
 
 		<action name="login3" class="org.koushik.javabrains.action.LoginAction">
