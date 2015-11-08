@@ -8,11 +8,9 @@
 <sx:head />
 </head>
 <body>
-   <s:form>
+  <s:form>
       <sx:autocompleter label="Favourite Colour"
-         list="{'red','green','blue'}" />
-      <br />
-      
+         list="{'red','green','blue'}" />     
    </s:form>
 </body>
 </html>

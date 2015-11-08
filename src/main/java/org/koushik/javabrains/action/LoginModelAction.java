@@ -47,10 +47,10 @@ public class LoginModelAction extends BaseAction  {
 	 * The interceptor will call this to get the member variable.
 	 */
 	
-	public User getModel() {	
-		log("In getModel of LoginModelAction");
-		return user;
-	}
+	//public User getModel() {	
+	//	log("In getModel of LoginModelAction");
+	//	return user;
+	//}
 
 	protected void log(String str) {
 		System.out.println(str);

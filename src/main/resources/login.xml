@@ -24,7 +24,7 @@
 
 		<action name="login2" class="org.koushik.javabrains.action.LoginModelAction">
 			<result name="success">/successLogin.jsp</result>
-			<result name="error">/index.jsp</result>
+			<result name="error">/errorLogin.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
 
