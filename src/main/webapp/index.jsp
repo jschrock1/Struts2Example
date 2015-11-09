@@ -13,14 +13,14 @@
 
 	<h4>Basic helloWorld .</h4>
 	<s:form action="hello">
-		<s:textfield label="Please enter your name." key="name" value="Jay" />
+		<s:textfield label="Please enter your name." name="name" value="Jay" />
 		<s:select name="type" label="Type of HelloWorld Test"
 			list="{'basic','dumpSession'}" />
 		<s:submit></s:submit>
 	</s:form>
 
 	<h4>Basic login Connects to MySQL Database.</h4>
-	<s:form action="login" method="post">
+	<s:form action="login" method="post"  namespace="/">
 		<s:textfield label="Please enter your name." value="scott"
 			key="userId" theme="xhtml" />
 		<s:textfield label="Please enter your Password." value="navy"
@@ -29,14 +29,14 @@
 	</s:form>
 
 	<h4>Login using getModel in action class</h4>
-	<s:form action="login2" method="post">
+	<s:form action="login2" method="post"  namespace="/">
 		<s:textfield label="Login ID" key="userId" value="Jay" />
 		<s:password label="Password" key="password"  />
 		<s:submit></s:submit>
 	</s:form>
 
 	<h4>Login using my own interceptor class.</h4>
-	<s:form action="login3" method="post">
+	<s:form action="login3" method="post"  namespace="/">
 		<s:textfield label="Please enter your name." value="scott"
 			key="userId" />
 		<s:textfield label="Please enter your Password." value="navy"
@@ -52,7 +52,7 @@
 	</s:form>
 
 	<h4>Dummy action, displays jsp with no java action getting called</h4>
-	<s:form action="searchForm" method="post">
+	<s:form action="searchForm" method="post" namespace="/">
 		<s:submit value="Find Tutorials"></s:submit>
 	</s:form>
 	<br />
@@ -156,15 +156,15 @@
 	</s:form>
 
 	<h4>Url Tags creates a URL that when clicked will call an action</h4>
-	<s:url id="login" action="login" var="myurl">
+	<s:url id="login" action="login.action" var="myurl">
 		<s:param name="userId">scott</s:param>
 		<s:param name="password">navy</s:param>
 	</s:url>
 
-	<a href='<s:property value="#myurl"/>'> <s:property value="#myurl" /></a>
+	<a href='<s:property value="#myurl" escape="&amp;"/>'> <s:property value="#myurl" escape="&amp;"/></a>
 
 	<h4>UI tag examples</h4>
-	<s:form action="uiExample" method="post">
+	<s:form action="uiExample" method="post" namespace="/">
 		<s:submit></s:submit>
 	</s:form>
 

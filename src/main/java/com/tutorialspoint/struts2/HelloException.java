@@ -30,7 +30,7 @@ public class HelloException   extends ActionSupport  {
 		System.out.println("in execute() of HelloException");
 
 		try {
-		String str = "";
+		String str = null;
 		if (str.equals("")) {
 			exceptionStr = null;
 			return SUCCESS;

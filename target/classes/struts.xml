@@ -11,11 +11,10 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.multipart.maxSize" value="1000000" />
 	<constant name="struts.custom.i18n.resources" value="global" /> 
-	 
 
+	 
 	<!-- I had to comment these out to get the system to find the property files 
 		not sure what they really do 
-		<constant name="struts.custom.i18n.resources" value="global" /> 
 		<constant name="struts.custom.i18n.resources" value="ApplicationResources"/> -->
 
 	<include file="login.xml" />
@@ -119,13 +118,11 @@
 			<result name="success">/callAction.jsp</result>
 		</action>
 
-		<action name="helloDate" class="com.tutorialspoint.struts2.HelloDate"
-			method="execute">
+		<action name="helloDate" method="execute">
 			<result name="success">/dateFormat.jsp</result>
 		</action>
 
-		<action name="helloText" class="com.tutorialspoint.struts2.HelloText"
-			method="execute">
+		<action name="helloText" method="execute">
 			<result name="success">/helloText.jsp</result>
 		</action>
 

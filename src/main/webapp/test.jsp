@@ -11,31 +11,13 @@
 </head>
 <body>
 
-	<h4>Example Ui tags</h4>
-	 <s:form action="login.action">
-      <s:select name="username" label="Username"
-         list="{'Mike','John','Smith'}" />
-
-      <s:select label="Company Office" name="mySelection"
-         value="%{'America'}"
-         list="%{#{'America':'America'}}">
-      <s:optgroup label="Asia" 
-         list="%{#{'India':'India','China':'China'}}" />
-      <s:optgroup label="Europe"
-         list="%{#{'UK':'UK','Sweden':'Sweden','Italy':'Italy'}}" />
-      </s:select>
-
-      <s:combobox label="My Sign" name="mySign"
-         list="#{'aries':'ariesy','capricorn':'capricornyy'}"
-         headerKey="-1" 
-         headerValue="--- Please Select ---" emptyOption="true"
-         value="capricorn" />
-      <s:doubleselect label="Occupation" name="occupation"
-         list="{'Technical','Other'}" doubleName="occupations2"
-         doubleList="top == 'Technical' ? 
-         {'I.T', 'Hardware'} : {'Accounting', 'H.R'}" />
-
-   </s:form>
+	<h4>Url Tags creates a URL that when clicked will call an action</h4>
+	<s:url id="login" action="login" var="myurl">
+		<s:param name="userId">scott</s:param>
+		<s:param name="password">navy</s:param>
+	</s:url>
+	
+		<a href='<s:property value="#myurl" escape="&amp;"/>'> <s:property value="#myurl" escape="&amp;"/></a>
 
 </body>
 </html>

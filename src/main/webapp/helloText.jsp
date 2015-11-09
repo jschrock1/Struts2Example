@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-<s:i18n name="HellText">
+<s:i18n name="HelloText">
    <s:text name="name.success"/><br>
    <s:text name="name.xyz">Message doesn't exists</s:text><br>
    <s:text name="name.msg.param">
