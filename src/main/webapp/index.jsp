@@ -20,7 +20,7 @@
 	</s:form>
 
 	<h4>Basic login Connects to MySQL Database.</h4>
-	<s:form action="login" method="post"  namespace="/">
+	<s:form action="login" method="post" namespace="/">
 		<s:textfield label="Please enter your name." value="scott"
 			key="userId" theme="xhtml" />
 		<s:textfield label="Please enter your Password." value="navy"
@@ -29,17 +29,17 @@
 	</s:form>
 
 	<h4>Login using getModel in action class</h4>
-	<s:form action="login2" method="post"  namespace="/">
+	<s:form action="login2" method="post" namespace="/">
 		<s:textfield label="Login ID" key="userId" value="Jay" />
-		<s:password label="Password" key="password"  />
+		<s:password label="Password" key="password" />
 		<s:submit></s:submit>
 	</s:form>
 
 	<h4>Login using my own interceptor class.</h4>
-	<s:form action="login3" method="post"  namespace="/">
-		<s:textfield label="Please enter your name." value="scott"
+	<s:form action="login3" method="post" namespace="/">
+		<s:textfield label="Please enter your name." value="userId"
 			key="userId" />
-		<s:textfield label="Please enter your Password." value="navy"
+		<s:textfield label="Please enter your Password." value="password"
 			key="password" />
 		<s:submit value="Login"></s:submit>
 	</s:form>
@@ -161,10 +161,16 @@
 		<s:param name="password">navy</s:param>
 	</s:url>
 
-	<a href='<s:property value="#myurl" escape="&amp;"/>'> <s:property value="#myurl" escape="&amp;"/></a>
+	<a href='<s:property value="#myurl" escape="&amp;"/>'> <s:property
+			value="#myurl" escape="&amp;" /></a>
 
 	<h4>UI tag examples</h4>
 	<s:form action="uiExample" method="post" namespace="/">
+		<s:submit></s:submit>
+	</s:form>
+
+	<h4>Ajax tag examples</h4>
+	<s:form action="autoCompleterAction" method="post" namespace="/">
 		<s:submit></s:submit>
 	</s:form>
 

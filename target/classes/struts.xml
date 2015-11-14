@@ -10,12 +10,12 @@
 
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.multipart.maxSize" value="1000000" />
-	<constant name="struts.custom.i18n.resources" value="global" /> 
+	<constant name="struts.custom.i18n.resources" value="global" />
 
-	 
+
 	<!-- I had to comment these out to get the system to find the property files 
-		not sure what they really do 
-		<constant name="struts.custom.i18n.resources" value="ApplicationResources"/> -->
+		not sure what they really do <constant name="struts.custom.i18n.resources" 
+		value="ApplicationResources"/> -->
 
 	<include file="login.xml" />
 
@@ -126,6 +126,14 @@
 			<result name="success">/helloText.jsp</result>
 		</action>
 
+		<action name="autoCompleterAction" class="com.tutorialspoint.struts2.AutoCompleterAction"
+			method="display">
+			<result name="none">autocompleter.jsp</result>
+		</action>
+
+		<action name="resultAction" class="com.tutorialspoint.struts2.AutoCompleterAction">
+			<result name="success">resultAjax.jsp</result>
+		</action>
 
 
 		<!-- action name="hello" class="com.tutorialspoint.struts2.HelloWorldAction" 
@@ -174,7 +182,7 @@
 			<result>/search{1}</result>
 		</action>
 	</package>
-	
+
 	<package name="UiExamples" namespace="/" extends="struts-default">
 		<action name="uiExample">
 			<result>/uiExample.jsp</result>
