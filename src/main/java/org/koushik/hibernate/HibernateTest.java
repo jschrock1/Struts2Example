@@ -11,12 +11,15 @@ import org.koushik.javabrains.dto.Address;
 import org.koushik.javabrains.dto.Department;
 import org.koushik.javabrains.dto.Email;
 import org.koushik.javabrains.dto.FourWheeler;
+import org.koushik.javabrains.dto.FourWheeler3;
 import org.koushik.javabrains.dto.Person;
 import org.koushik.javabrains.dto.RentalCar;
 import org.koushik.javabrains.dto.TwoWheeler;
+import org.koushik.javabrains.dto.TwoWheeler3;
 import org.koushik.javabrains.dto.UserDetails;
 import org.koushik.javabrains.dto.Vehicle;
 import org.koushik.javabrains.dto.Vehicle2;
+import org.koushik.javabrains.dto.Vehicle3;
 
 public class HibernateTest {
 
@@ -24,9 +27,10 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 
-		String testType = "Inheratance Single Table Strategy";
-		//String testType = "Initial Set Up";
+		//String testType = "Inheratance Single Table Strategy";
+		String testType = "Initial Set Up";
 		//String testType = "NotFound";
+		//String testType = "Inheratance Multi Table Strategy";
 
 		if (testType.equals("Initial Set Up")) {
 
@@ -59,10 +63,25 @@ public class HibernateTest {
 
 			account1.setUser(user);
 			account2.setUser(user);
+			
+			Vehicle3 vehicle3 = new Vehicle3();
+			vehicle3.setVehicalName("Car");
+
+			TwoWheeler3 bike = new TwoWheeler3();
+			bike.setVehicalName("bike");
+			bike.setSteeringHandle("Bike Steering Handle");
+
+			FourWheeler3 car = new FourWheeler3();
+			car.setVehicalName("Porsche");
+			car.setSteeringWheel("Porsche Steering Handle");
+
 
 			try {
 				Session session = getSessionTrans();
 				session.persist(user);
+				session.save(vehicle3);
+				session.save(bike);
+				session.save(car);
 				commitCloseSession(session);
 				user = null;
 				session = getSessionTrans();
@@ -100,6 +119,27 @@ public class HibernateTest {
 
 			commitCloseSession(session);
 
+		} else if (testType.equals("Inheratance Multi Table Strategy")) {
+			
+			Vehicle3 vehicle3 = new Vehicle3();
+			vehicle3.setVehicalName("Car");
+
+			TwoWheeler3 bike = new TwoWheeler3();
+			bike.setVehicalName("bike");
+			bike.setSteeringHandle("Bike Steering Handle");
+
+			FourWheeler3 car = new FourWheeler3();
+			car.setVehicalName("Porsche");
+			car.setSteeringWheel("Porsche Steering Handle");
+
+			Session session = getSessionTrans();
+
+			session.save(vehicle3);
+			session.save(bike);
+			session.save(car);
+
+			commitCloseSession(session);
+			
 		} else if (testType.equals("NotFound")) {
 
 			try {

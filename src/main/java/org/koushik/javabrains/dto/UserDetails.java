@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
@@ -17,6 +18,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
@@ -79,6 +81,8 @@ import org.hibernate.annotations.Type; // for @CollectionId
  * @OneTo... (cascade =
  *           CascadeType.ALL) Tells hibernate to save all the entities in the
  *           collection even if they hvae not been saved manually
+ * @Inheritance  used for inheritance tables, prob won't use.  See Vehicle2 class
+ * @DiscriminatorColumn again for inheritance, prob won't use, See Vehicle2 class           
  */
 
 // @Entity tells hibernate to use this class to create the table.

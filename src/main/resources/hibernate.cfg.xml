@@ -27,6 +27,8 @@
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
+        
+         <property name="hbm2ddl.auto">create</property>
 
 
         <property name="cache.use_second_level_cache">true</property>
@@ -36,6 +38,7 @@
         <mapping class="org.koushik.javabrains.dto.UserDetails"/>
         <mapping class="org.koushik.javabrains.dto.Vehicle"/>
         <mapping class="org.koushik.javabrains.dto.Vehicle2"/>  
+        <mapping class="org.koushik.javabrains.dto.Vehicle3"/>          
         <mapping class="org.koushik.javabrains.dto.Email"/>      
         <mapping class="org.koushik.javabrains.dto.Person"/> 
         <mapping class="org.koushik.javabrains.dto.RentalCar"/> 
@@ -44,6 +47,8 @@
         <mapping class="org.koushik.javabrains.dto.Department"/>   
         <mapping class="org.koushik.javabrains.dto.TwoWheeler"/>
         <mapping class="org.koushik.javabrains.dto.FourWheeler"/>
+        <mapping class="org.koushik.javabrains.dto.TwoWheeler3"/>
+        <mapping class="org.koushik.javabrains.dto.FourWheeler3"/>        
              
 
     </session-factory>

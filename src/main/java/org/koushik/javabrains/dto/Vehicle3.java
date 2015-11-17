@@ -1,11 +1,6 @@
 package org.koushik.javabrains.dto;
 
 import java.util.ArrayList;
-
-/**
- * This example will demonstrate how to work with two sub classes from one parent class 
- * and how the data goes into one table...
- */
 import java.util.Collection;
 
 import javax.persistence.DiscriminatorColumn;
@@ -22,10 +17,16 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+/**
+ * This example shows how to persist data from two sub classes inheriting from Vehicle3, and
+ * this time the data will go into three separate tables.
+ * @author jay
+ *
+ */
+
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)  // without this it will implement single table strategy.
-@DiscriminatorColumn(name="VEHICLE_TYPE", discriminatorType=DiscriminatorType.STRING)
-public class Vehicle2 {
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)  // mulitple tables
+public class Vehicle3 {
 	
 	@Id @GeneratedValue
 	private int vehicleId;
