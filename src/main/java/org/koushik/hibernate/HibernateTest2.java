@@ -15,6 +15,15 @@ import org.hibernate.criterion.Restrictions;
 import org.koushik.javabrains.dto.UserDetails;
 import org.koushik.javabrains.dto.UserDetails2;
 
+/**
+ * This class is another java only class and should be run as a java application, not a web application.
+ * It is here to test the various ways to save persistent objects.  See the testingType member variable
+ * for information on what type of test to run.  This class uses UserDetails2  as I didn't want to 
+ * corrupt UserDetails.
+ * 
+ * @author jay
+ *
+ */
 public class HibernateTest2 {
 
 	static SessionFactory sessisonFactory = new Configuration().configure().buildSessionFactory();
@@ -82,6 +91,7 @@ public class HibernateTest2 {
 		} else if (testingType.equals("HQL Examples")) {
 
 			// chanege hibernate.cfg.xml to update
+			// Comment out the various code blocks to test the various HQL examples
 
 			Session session = getSessionTrans();
 

@@ -21,14 +21,28 @@ import org.koushik.javabrains.dto.Vehicle;
 import org.koushik.javabrains.dto.Vehicle2;
 import org.koushik.javabrains.dto.Vehicle3;
 
+/**
+ * This java "main" testing class should be run as a stand alone java application, hence the main method in this class.
+ * It's purpose is to test out the different Inheritance strategies when saving objects that may or may not
+ * inherit from other objects.
+ * 
+ * I doubt we will be utilizing this type of database storage ideas, its good stuff, but our application may 
+ * not require tables that have inheritance in them.  Most applications don't do this, not saying its bad, 
+ * just adds complexities that typically you don't need.
+ * 
+ * To run the various tests, change the testType below for your parrticular types of tests.
+ * 
+ * @author jay
+ *
+ */
 public class HibernateTest {
 
 	static SessionFactory sessisonFactory = new Configuration().configure().buildSessionFactory();
 
 	public static void main(String[] args) {
 
-		//String testType = "Inheratance Single Table Strategy";
 		String testType = "Initial Set Up";
+		//String testType = "Inheratance Single Table Strategy";
 		//String testType = "NotFound";
 		//String testType = "Inheratance Multi Table Strategy";
 
