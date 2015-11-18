@@ -28,14 +28,20 @@
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
         
-         <property name="hbm2ddl.auto">create</property>
+         <property name="hbm2ddl.auto">update</property>
 
-
-        <property name="cache.use_second_level_cache">true</property>
-
+         <!--  by default second level cache is off -->
+         <!-- 
+        <property name="cache.user_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache"></property>
+        <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+        -->
+        <!-- property name="cache.provider_class">org.hibernate.cache.EhCacheProvider.class</property -->
+        
         <!-- Echo all executed SQL to stdout -->
 
         <mapping class="org.koushik.javabrains.dto.UserDetails"/>
+        <mapping class="org.koushik.javabrains.dto.UserDetails2"/>
         <mapping class="org.koushik.javabrains.dto.Vehicle"/>
         <mapping class="org.koushik.javabrains.dto.Vehicle2"/>  
         <mapping class="org.koushik.javabrains.dto.Vehicle3"/>          

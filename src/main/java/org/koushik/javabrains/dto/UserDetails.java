@@ -19,10 +19,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -77,12 +80,21 @@ import org.hibernate.annotations.Type; // for @CollectionId
  *            and just put the foreign key in the account table
  * @OneToOne creates a foreign key in the user object pointing to the table that
  *           contains the relationship to the other table.
- * @NotFound Tells hibernate to ignore a not found 
- * @OneTo... (cascade =
+ * @NotFound Tells hibernate to ignore a not found @OneTo... (cascade =
  *           CascadeType.ALL) Tells hibernate to save all the entities in the
  *           collection even if they hvae not been saved manually
- * @Inheritance  used for inheritance tables, prob won't use.  See Vehicle2 class
- * @DiscriminatorColumn again for inheritance, prob won't use, See Vehicle2 class           
+ * @Inheritance used for inheritance tables, prob won't use. See Vehicle2 class
+ * @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) strategy is key in
+ *             inheritance, but I doubt we will use database relation
+ *              table set up,
+ * @DiscriminatorColumn again for inheritance, prob won't use, See Vehicle2
+ *                      class
+ * @NamedQuery(name="UserDetails2.byId", query=
+ *           "from UserDetails2 where userId = ?") or create a native SQL 
+ *           query as a named query. 8 @NamedNativeQuery(name=
+ *           "UserDetails.byName", query="select * from UserDetails2 where userName = ?"
+ *          , resultClass=UserDetails2.class )
+ * 
  */
 
 // @Entity tells hibernate to use this class to create the table.
